@@ -1,0 +1,5 @@
+<div class="bg-info p-4 rounded-3 m-3 position-relative">
+      <% @items.each do |item| %>
+            <%= render partial: "partials/card", locals: {item: item} %>
+      <% end %>
+</div>
