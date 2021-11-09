@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :validatable, 
          :trackable, 
          :timeoutable, timeout_in: 10.minutes
+
+  has_many :items
 end

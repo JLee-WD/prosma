@@ -8,7 +8,10 @@ class ItemsController < ApplicationController
     # else
 
     # end
-    
+    @item = Item.create(item_params)
+
+    redirect_to items_path
+    p item_params
   end
 
   def new
@@ -29,8 +32,18 @@ class ItemsController < ApplicationController
 
   private 
 
+  #Reads items, materials, limbs and types and assigns to instance variables
   def read_items
     @items = Item.all
     @materials = Material.all
+    @limbs = Limb.all
+    @types = Type.all
   end
+
+  #Whitelisting parameters for item instansiation
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :material, :limb, :type)
+  end
+
+
 end
