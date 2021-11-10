@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  def new
+    @item = Item.new
+  end
+
   def create
     # sanitize_item_params()
     # if user_signed_in?
@@ -10,13 +14,10 @@ class ItemsController < ApplicationController
     # else
 
     # end
-    @item = Item.create(item_params)
-
+    @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    @item.save
     redirect_to items_path
-  end
-
-  def new
-    @item = Item.new
   end
 
   def index
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
   end
 
   private 

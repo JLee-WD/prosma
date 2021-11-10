@@ -9,5 +9,5 @@ class User < ApplicationRecord
          :trackable, 
          :timeoutable, timeout_in: 10.minutes
 
-  # has_many :items
+  has_many :items
 end

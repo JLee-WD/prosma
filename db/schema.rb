@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_230818) do
+ActiveRecord::Schema.define(version: 2021_11_10_044721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 2021_11_09_230818) do
     t.integer "material_id", null: false
     t.integer "limb_id", null: false
     t.integer "type_id", null: false
+    t.bigint "user_id"
     t.index ["limb_id"], name: "index_items_on_limb_id"
     t.index ["material_id"], name: "index_items_on_material_id"
     t.index ["type_id"], name: "index_items_on_type_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "limbs", force: :cascade do |t|
@@ -67,4 +69,5 @@ ActiveRecord::Schema.define(version: 2021_11_09_230818) do
   add_foreign_key "items", "limbs"
   add_foreign_key "items", "materials"
   add_foreign_key "items", "types"
+  add_foreign_key "items", "users"
 end
