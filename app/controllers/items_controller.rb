@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    # sanitize_item_params()
     # if user_signed_in?
 
     # else
@@ -11,7 +12,6 @@ class ItemsController < ApplicationController
     @item = Item.create(item_params)
 
     redirect_to items_path
-    p item_params
   end
 
   def new
@@ -40,10 +40,15 @@ class ItemsController < ApplicationController
     @types = Type.all
   end
 
-  #Whitelisting parameters for item instansiation
+  # Whitelist parameters for item instansiation
   def item_params
-    params.require(:item).permit(:title, :description, :price, :material, :limb, :type)
+    params.require(:item).permit(:title, :description, :price, :material_id, :limb_id, :type_id)
   end
 
+  # def sanitize_item_params
+  #   params["item"]["material"] = params["item"]["material"].to_i
+  #   params["item"]["limb"] = params["item"]["limb"].to_i
+  #   params["item"]["type"] = params["item"]["type"].to_i
+  # end
 
 end

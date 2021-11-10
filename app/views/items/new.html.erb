@@ -3,11 +3,14 @@
 <%# New item form using simpleform gem %>
 <%= simple_form_for @item do |f| %>
   <%= f.input :title, placeholder: 'e.g. Bionic Arm x34 v2.0', error: 'Title is required' %>
-  <%= f.input :limb, collection: @limbs, error: 'Limb is required' %>
-  <%= f.input :material, collection: @materials,  error: 'Limb is required' %>
-  <%= f.input :type, collection: @types, error: 'Type is required' %>
+
+  <%= f.input :limb_id, collection: @limbs, error: 'Limb is required' %>
+  <%= f.input :material_id, collection: @materials,  error: 'Limb is required' %>
+  <%= f.input :type_id, collection: @types, error: 'Type is required' %>
+
   <%= f.input :price, as: :integer, min: 0 %>
   <%= f.input :description, as: :text, placeholder: 'e.g. Bionic Arm featuring latest enhancements', error: 'Description is required' %>
   <%= f.button :submit %>
 <% end %>
+
 
