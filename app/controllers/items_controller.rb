@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # sanitize_item_params()
     # if user_signed_in?
 
     # else
