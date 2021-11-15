@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
   # Whitelist parameters for item instansiation
   def item_params
-    params.require(:item).permit(:title, :description, :price, :material_id, :limb_id, :type_id)
+    params.require(:item).permit(:title, :description, :price, :material_id, :limb_id, :type_id, :picture)
   end
 
 end

@@ -1,13 +1,16 @@
   <div class="card mb-3 mx-auto" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+        <%= image_tag(item.picture, alt: "image", class: "img-fluid") if item.picture.attached? %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><%= item.title %></h5>
           <p class="card-text"><%= item.description %></p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><%= item.price %></p>
+          <p class="card-text"><%= @materials[item.material_id].title %></p>
+          <p class="card-text"><%= @limbs[item.limb_id].title %></p>
+          <p class="card-text"><%= @types[item.type_id].title %></p>
         </div>
       </div>
     </div>

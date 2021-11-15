@@ -1,0 +1,59 @@
+[33mcommit 1d29459998f7166f23d7a14a26650a122739664a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mshow_delete[m[33m)[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Sun Nov 14 22:09:43 2021 +1100
+
+    Amazon S3 setup, prior to image upload implementation
+
+[33mcommit 3c88414a44049af9eb9056603d92d29c93e2bf69[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Wed Nov 10 16:17:24 2021 +1100
+
+    Added user reference to item
+
+[33mcommit e096f19a4f1f3dfe589af158516b223853d6e25e[m[33m ([m[1;31morigin/master[m[33m, [m[1;31mheroku/master[m[33m)[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Wed Nov 10 14:49:31 2021 +1100
+
+    Added edit item method, edit form, separated form partial for edit and new
+
+[33mcommit 9d7b00f3337715b23770edff95b4641206525016[m[33m ([m[1;32mnew_form[m[33m)[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Wed Nov 10 12:56:39 2021 +1100
+
+    New item simpleform complete, adding successfully to DB
+
+[33mcommit 58e78835b15224a26aaa32674dcfaab281e1c249[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Tue Nov 9 23:09:22 2021 +1100
+
+    Added simpleform for new item method, added item, limb and material models
+
+[33mcommit 3bbaf96b98dfbf61d00931a7e3e28d2050550326[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Tue Nov 9 17:38:02 2021 +1100
+
+    Added new item form, unfinished, Added materials model
+
+[33mcommit fc044edd7de1f5cd1b3db08888f490b87f6022a1[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Tue Nov 9 11:37:28 2021 +1100
+
+    Added pundit, included trackable and timout for devise users
+
+[33mcommit 6442cd8e041b12e7b532074d172ee97239ab79a6[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Fri Nov 5 21:56:31 2021 +1100
+
+    Added show all items method
+
+[33mcommit c305ce3fbfc81bc6db5be7798b34558186fe9218[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Wed Nov 3 21:57:52 2021 +1100
+
+    Added bootstrap navbar, log out button, card
+
+[33mcommit 02ffbc2b85052fccf15780fe6005b6ab36af46a3[m
+Author: justinl <cas022101@coderacademy.edu.au>
+Date:   Wed Nov 3 14:20:02 2021 +1100
+
+    Initial commit, rails new with postgres, added Devise, Bootstrap and Simpleform gems

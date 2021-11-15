@@ -1,11 +1,41 @@
-<%= simple_form_for @item do |f| %>
-  <%= f.input :title, placeholder: 'e.g. Bionic Arm x34 v2.0', error: 'Title is required' %>
-
-  <%= f.input :limb_id, collection: @limbs, error: 'Limb is required' %>
-  <%= f.input :material_id, collection: @materials,  error: 'Limb is required' %>
-  <%= f.input :type_id, collection: @types, error: 'Type is required' %>
-
-  <%= f.input :price, as: :integer, min: 0 %>
-  <%= f.input :description, as: :text, placeholder: 'e.g. Bionic Arm featuring latest enhancements', error: 'Description is required' %>
-  <%= f.button :submit %>
+<%= form_with model: @item do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <br>
+  <% for option in @limbs %>
+    <div>
+      <%= form.radio_button :limb_id, option.id %>
+      <%= form.label :limb_id, option.title %>
+    </div>
+  <% end %>
+  <br>
+  <%= form.label :material_id %>
+  <%= form.select(:material_id, @materials.map{ |m| [m.title, m.id]}) %>
+  <br>
+  <%= form.label :type_id %>
+  <%= form.select(:type_id, @types.map{ |t| [t.title, t.id]}) %>
+  <br>
+  <%= form.label :price %>
+  <%= form.number_field :price, min:0 %>
+  <br>
+  <%= form.label :picture %>
+  <%= form.file_field :picture, accept: "image/png, image/jpg, image/jpeg" %>
+  <br>
+  <%= form.submit %>
 <% end %>
+
+
+
+<%# <%= simple_form_for @item do |f| %>
+  <%# <%= f.input :title, placeholder: 'e.g. Bionic Arm x34 v2.0', error: 'Title is required' %>
+  <%# <%= f.input :limb_id, collection: @limbs, error: 'Limb is required' %>
+  <%# <%= f.input :material_id, collection: @materials,  error: 'Limb is required' %>
+  <%# <%= f.input :type_id, collection: @types, error: 'Type is required' %>
+  <%# <%= f.input :price, as: :integer, min: 0 %>
+  <%# <%= f.input :description, as: :text, placeholder: 'e.g. Bionic Arm featuring latest enhancements', error: 'Description is required' %>
+  <%# <%= f.input :image, as: :file %>
+  <%# <%= f.button :submit %>
+<%# <% end %>
