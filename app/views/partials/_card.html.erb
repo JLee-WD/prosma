@@ -5,7 +5,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><%= item.title %></h5>
+          <%= link_to "#{item.title}", item_path(item) %>
           <p class="card-text"><%= item.description %></p>
           <p class="card-text"><%= item.price %></p>
           <p class="card-text"><%= @materials[item.material_id].title %></p>

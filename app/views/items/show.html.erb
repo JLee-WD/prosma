@@ -1,1 +1,12 @@
-<h1>show</h1>
+<h1>show item</h1>
+  <div class="card-body">
+    <%= image_tag(@item.picture, alt: "image", class: "img-fluid") if @item.picture.attached? %>
+    <h5 class="card-title"><%= @item.title %></h5>
+    <p class="card-text"><%= @item.description %></p>
+    <p class="card-text"><%= @item.price %></p>
+    <p class="card-text"><%= @materials[@item.material_id].title %></p>
+    <p class="card-text"><%= @limbs[@item.limb_id].title %></p>
+    <p class="card-text"><%= @types[@item.type_id].title %></p>
+    <p class="card-text"><%= @types[@item.type_id].title %></p>
+    <p class="card-text"><%= @users[@item.user_id].first_name + @users[@item.user_id].last_name %></p>
+  </div>

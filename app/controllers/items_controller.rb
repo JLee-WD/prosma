@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :read_items
+  before_action :read_items, :read_users
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @item = Item.new
@@ -17,6 +17,9 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     @item.save
     redirect_to items_path
+  end
+
+  def show
   end
 
   def index
@@ -49,6 +52,9 @@ class ItemsController < ApplicationController
     @types = Type.all
   end
 
+  def read_users
+    @users = User.all
+  end
   # Whitelist parameters for item instansiation
   def item_params
     params.require(:item).permit(:title, :description, :price, :material_id, :limb_id, :type_id, :picture)
