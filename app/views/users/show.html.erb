@@ -3,5 +3,7 @@
     <p class="card-text"><%= "Full name: " +  @user.first_name + " " + @user.last_name %></p>
     <p class="card-text"><%= "Email: " +  @user.email %></p>
     <p class="card-text"><%= "User since: " +  @user.created_at.to_s %></p>
-    <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
+    <% if current_user.id == @user.id %>
+      <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
+    <% end %>
   </div>

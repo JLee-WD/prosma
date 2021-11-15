@@ -8,9 +8,9 @@
           <%= link_to "#{item.title}", item_path(item) %>
           <p class="card-text"><%= item.description %></p>
           <p class="card-text"><%= item.price %></p>
-          <p class="card-text"><%= @materials[item.material_id].title %></p>
-          <p class="card-text"><%= @limbs[item.limb_id].title %></p>
-          <p class="card-text"><%= @types[item.type_id].title %></p>
+          <p class="card-text"><%= @materials[item.material_id - 1].title %></p>
+          <p class="card-text"><%= @limbs[item.limb_id - 1].title %></p>
+          <p class="card-text"><%= @types[item.type_id - 1].title %></p>
         </div>
       </div>
     </div>

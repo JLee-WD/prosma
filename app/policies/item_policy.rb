@@ -2,8 +2,16 @@
 
 class ItemPolicy < ApplicationPolicy
 
-  # def edit?
-  #   user.admin? || 
+  # def new?
+  #   user.admin?
   # end
+
+  def edit?
+    user == record.user
+  end
+
+  def update?
+    user == record.user
+  end
 
 end
