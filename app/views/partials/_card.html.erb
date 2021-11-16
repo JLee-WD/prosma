@@ -1,16 +1,16 @@
-  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+  <div class="card mb-3 mx-auto">
     <div class="row g-0">
-      <div class="col-md-4">
-        <%= image_tag(item.picture, alt: "image", class: "img-fluid") if item.picture.attached? %>
+      <div class="card-img-container col-md-4">
+        <%= image_tag(item.picture, alt: "image", class: "card-img") if item.picture.attached? %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <%= link_to "#{item.title}", item_path(item) %>
-          <p class="card-text"><%= item.description %></p>
-          <p class="card-text"><%= item.price %></p>
-          <p class="card-text"><%= @materials[item.material_id - 1].title %></p>
-          <p class="card-text"><%= @limbs[item.limb_id - 1].title %></p>
-          <p class="card-text"><%= @types[item.type_id - 1].title %></p>
+          <%= link_to "#{item.title}", item_path(item), class: "neonTextTitle" %>
+          <p class="card-text neonText"><%= item.description %></p>
+          <p class="card-text neonText"><%= item.price %></p>
+          <p class="card-text neonText"><%= @materials[item.material_id - 1].title %></p>
+          <p class="card-text neonText"><%= @limbs[item.limb_id - 1].title %></p>
+          <p class="card-text neonText"><%= @types[item.type_id - 1].title %></p>
         </div>
       </div>
     </div>

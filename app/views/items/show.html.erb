@@ -1,16 +1,14 @@
-<h1>show item</h1>
   <div class="card-body">
     <%= image_tag(@item.picture, alt: "image", class: "img-fluid") if @item.picture.attached? %>
-    <h5 class="card-title"><%= @item.title %></h5>
-    <p class="card-text"><%= @item.description %></p>
-    <p class="card-text"><%= @item.price %></p>
-    <p class="card-text"><%= @materials[@item.material_id - 1].title %></p>
-    <p class="card-text"><%= @limbs[@item.limb_id - 1].title %></p>
-    <p class="card-text"><%= @types[@item.type_id - 1].title %></p>
-    <p class="card-text"><%= @types[@item.type_id - 1].title %></p>
-    <p class="card-text"><%= @item.user.first_name + " " + @item.user.last_name %></p>
-
-    <% if current_user.id == @item.user_id %>
+    <h5 class="card-title neonTextTitle"><%= @item.title %></h5>
+    <p class="card-text neonText"><%= @item.description %></p>
+    <p class="card-text neonText price"><%= number_to_currency(@item.price, unit: "¥")  %></p>
+    <p class="card-text neonText"><%= @materials[@item.material_id - 1].title %></p>
+    <p class="card-text neonText"><%= @limbs[@item.limb_id - 1].title %></p>
+    <p class="card-text neonText"><%= @types[@item.type_id - 1].title %></p>
+    <p class="card-text neonText"><%= @types[@item.type_id - 1].title %></p>
+    <p class="card-text neonText"><%= @item.user.first_name + " " + @item.user.last_name %></p>
+    <% if current_user && (current_user.id == @item.user_id) %>
       <%= link_to "Edit", edit_item_path(@item.id), class: "nav-link" %>
     <% end %>
   </div>

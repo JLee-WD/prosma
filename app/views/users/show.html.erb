@@ -1,8 +1,8 @@
-<h1>Profile</h1>
+<h2 class="card-title neonTextTitle">Profile</h2>
   <div class="card-body">
-    <p class="card-text"><%= "Full name: " +  @user.first_name + " " + @user.last_name %></p>
-    <p class="card-text"><%= "Email: " +  @user.email %></p>
-    <p class="card-text"><%= "User since: " +  @user.created_at.to_s %></p>
+    <p class="card-text neonText"><%= "Full name: " +  @user.first_name + " " + @user.last_name %></p>
+    <p class="card-text neonText"><%= "Email: " +  @user.email %></p>
+    <p class="card-text neonText"><%= "User since: " +  @user.created_at.to_s %></p>
     <% if current_user.id == @user.id %>
       <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
     <% end %>
