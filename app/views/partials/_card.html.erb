@@ -6,11 +6,10 @@
       <div class="col-md-8">
         <div class="card-body">
           <%= link_to "#{item.title}", item_path(item), class: "neonTextTitle" %>
-          <p class="card-text neonText"><%= item.description %></p>
-          <p class="card-text neonText"><%= item.price %></p>
-          <p class="card-text neonText"><%= @materials[item.material_id - 1].title %></p>
-          <p class="card-text neonText"><%= @limbs[item.limb_id - 1].title %></p>
-          <p class="card-text neonText"><%= @types[item.type_id - 1].title %></p>
+          <p class="card-text neonText"><%= number_to_currency(@item.price, unit: "¥") %></p>
+          <p class="card-text neonText">Material: <%= @materials[item.material_id - 1].title %></p>
+          <p class="card-text neonText">Limb: <%= @limbs[item.limb_id - 1].title %></p>
+          <p class="card-text neonText">Type: <%= @types[item.type_id - 1].title %></p>
         </div>
       </div>
     </div>

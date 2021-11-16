@@ -3,11 +3,10 @@
     <h5 class="card-title neonTextTitle"><%= @item.title %></h5>
     <p class="card-text neonText"><%= @item.description %></p>
     <p class="card-text neonText price"><%= number_to_currency(@item.price, unit: "¥")  %></p>
-    <p class="card-text neonText"><%= @materials[@item.material_id - 1].title %></p>
-    <p class="card-text neonText"><%= @limbs[@item.limb_id - 1].title %></p>
-    <p class="card-text neonText"><%= @types[@item.type_id - 1].title %></p>
-    <p class="card-text neonText"><%= @types[@item.type_id - 1].title %></p>
-    <p class="card-text neonText"><%= @item.user.first_name + " " + @item.user.last_name %></p>
+    <p class="card-text neonText">Material: <%= @materials[@item.material_id - 1].title %></p>
+    <p class="card-text neonText">Limb: <%= @limbs[@item.limb_id - 1].title %></p>
+    <p class="card-text neonText">Type: <%= @types[@item.type_id - 1].title %></p>
+    <p class="card-text neonText">Seller: <%= @item.user.first_name + " " + @item.user.last_name %></p>
     <% if current_user && (current_user.id == @item.user_id) %>
       <%= link_to "Edit", edit_item_path(@item.id), class: "nav-link" %>
     <% end %>
