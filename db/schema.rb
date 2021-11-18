@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_035942) do
+ActiveRecord::Schema.define(version: 2021_11_18_124028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,17 @@ ActiveRecord::Schema.define(version: 2021_11_18_035942) do
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cart_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -52,26 +58,11 @@ ActiveRecord::Schema.define(version: 2021_11_18_035942) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
-    t.integer "material_id", null: false
-    t.integer "limb_id", null: false
-    t.integer "type_id", null: false
     t.bigint "user_id"
-    t.index ["limb_id"], name: "index_items_on_limb_id"
-    t.index ["material_id"], name: "index_items_on_material_id"
-    t.index ["type_id"], name: "index_items_on_type_id"
+    t.string "material", null: false
+    t.string "limb", null: false
+    t.string "control_type", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "limbs", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "materials", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -89,12 +80,6 @@ ActiveRecord::Schema.define(version: 2021_11_18_035942) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,9 +103,9 @@ ActiveRecord::Schema.define(version: 2021_11_18_035942) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "items", "limbs"
-  add_foreign_key "items", "materials"
-  add_foreign_key "items", "types"
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "users"
   add_foreign_key "items", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"

@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   delete "/items/:id", to: "items#destroy"
   get "/items/:id/edit", to: "items#edit", as: "edit_item"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get "/cart", to: "carts#show", as: "cart"
+  post "/cart/:id", to: "carts#create", as: "add_to_cart"
 end

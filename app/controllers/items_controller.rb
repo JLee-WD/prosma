@@ -49,9 +49,6 @@ class ItemsController < ApplicationController
   #Reads items, materials, limbs and types and assigns to instance variables
   def read_items
     @items = Item.all
-    @materials = Material.all
-    @limbs = Limb.all
-    @types = Type.all
   end
 
   def read_users
@@ -59,7 +56,7 @@ class ItemsController < ApplicationController
   end
   # Whitelist parameters for item instansiation
   def item_params
-    params.require(:item).permit(:title, :description, :price, :material_id, :limb_id, :type_id, :picture)
+    params.require(:item).permit(:title, :description, :price, :material, :limb, :control_type, :picture)
   end
 
 end

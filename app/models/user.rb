@@ -10,4 +10,6 @@ class User < ApplicationRecord
          :timeoutable, timeout_in: 10.minutes
 
   has_many :items
+  has_one :cart
+  has_many :cart_items, through: :cart
 end
