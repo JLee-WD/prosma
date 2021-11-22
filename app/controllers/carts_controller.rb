@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user_cart, only: [:create, :show]
-  before_action :set_cart_item, only: [:create]
+  before_action :set_user_cart, only: [:create, :show, :destroy]
+  before_action :set_cart_item, only: [:create, :destroy]
 
   def create
     if @cart
@@ -43,7 +43,12 @@ class CartsController < ApplicationController
     )
 
     @session_id = session.id
+  end
 
+  def destroy
+    @cart.cart_items.delete(params[:id])
+    flash[:alert] = "Item removed from cart"
+    redirect_to cart_path
   end
 
   private

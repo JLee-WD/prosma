@@ -1,13 +1,13 @@
-<div class="p-4 rounded-3 m-3 position-relative">
+<div class="p-4 rounded-3 m-3 position-relative form-group">
       <%= form_with(method:"get", url: items_path, scope: :search, local: true) do |form| %>
-            <%= form.label :title,  class: "neonText" %>
-            <%= form.text_field :title %>
-            <%= form.label :limb_id %>
-            <%= form.select :limb_id, @limbs.map {|l| [l.name, l.id]}  %>
-            <%= form.submit "search" %>
+            <%= form.text_field :title, class: "form-control", :placeholder => 'Search by name' %>
+            <%= form.label "Filter by Limb:", class: "neonText" %>
+            <%= form.select :limb_id, @limbs.map {|l| [l.name, l.id]}, class: "form-control"  %>
+            <%= form.submit "search", class: "btn neonText" %>
       <% end %>
-
-      <% @items.each do |item| %>
-            <%= render partial: "partials/card", locals: {item: item} %>
-      <% end %>
+      <div class="mt-4">
+            <% @items.each do |item| %>
+                  <%= render partial: "partials/card", locals: {item: item} %>
+            <% end %>
+      </div>
 </div>

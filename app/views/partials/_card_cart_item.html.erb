@@ -1,7 +1,8 @@
-  <li class="list-group-item d-flex justify-content-between align-items-start">
+  <li class="card list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
-          <%= link_to "#{item.title}", item_path(item), class: "neonText" %>
+      <%= link_to "#{item.title}", item_path(item), class: "neonText" %>
       <p class="neonText"><%= item.limb.name + "," + item.material + "," + item.control_type %></p>
+      <p class="neonText"><%= number_to_currency(item.price, unit: "¥") %></p>
+      <%= link_to "Remove from Cart", destroy_cart_item_path(item.id), :method => :delete, class: "nav-link" %>
     </div>
-    <p class="neonText"><%= number_to_currency(item.price, unit: "¥") %></p>
   </li>

@@ -1,15 +1,18 @@
-  <ol class="list-group list-group-numbered">
-        <% @cart.items.each do |item| %>
+<ul class="list-group">
+      <% @cart.items.each do |item| %>
             <%= render partial: "partials/card_cart_item", locals: {item: item} %>
       <% end %>
-</ol>
+</ul>
+
 <button data-stripe="payment">Checkout</button>
+
 <script src="https://js.stripe.com/v3/"></script>
+
 <script>
-document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-stripe.redirectToCheckout({
-      sessionId: "<%= @session_id %>"
-});
-});
+      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+            const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+            stripe.redirectToCheckout({
+                  sessionId: "<%= @session_id %>"
+            });
+      });
 </script>

@@ -20,33 +20,25 @@ body {
   background: #1f1f1f;
   // background: rgb(0,67,130);
   // background: linear-gradient(90deg, rgba(0,67,130,1) 0%, rgba(0,0,0,1) 33%, rgba(0,0,0,1) 69%, rgba(105,0,104,1) 100%);
-  font-family: 'M PLUS 1 Code', sans-serif;
+  font-family: "M PLUS 1 Code", sans-serif;
 }
 
 .navbar {
   border-bottom: 5px solid #570000;
 }
 
-#navBrand{
+#navBrand {
   color: #fff;
   font-size: 2rem;
-  text-shadow:
-  0 0 7px #fff,
-  0 0 10px #570000,
-  0 0 21px #570000,
-  0 0 42px #570000,
-  0 0 82px #570000,
+  text-shadow: 0 0 7px #fff, 0 0 10px #570000, 0 0 21px #570000,
+    0 0 42px #570000, 0 0 82px #570000;
 }
 
 #navLink {
   font-size: 1rem;
   color: #fff;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #570000,
-    0 0 21px #570000,
-    0 0 42px #570000,
-    0 0 82px #570000,
+  text-shadow: 0 0 7px #fff, 0 0 10px #570000, 0 0 21px #570000,
+    0 0 42px #570000, 0 0 82px #570000;
 }
 
 a:visited {
@@ -62,29 +54,21 @@ a:visited {
   text-decoration: none;
   font-size: 2rem;
   color: #fff;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #570000,
-    0 0 21px #570000,
-    0 0 42px #570000,
-    0 0 82px #570000,
-    // 0 0 92px #0fa,
-    // 0 0 102px #0fa,
-    // 0 0 151px #0fa;
+  text-shadow: 0 0 7px #fff, 0 0 10px #570000, 0 0 21px #570000,
+    0 0 42px #570000, 0 0 82px #570000;
+  // 0 0 92px #0fa,
+  // 0 0 102px #0fa,
+  // 0 0 151px #0fa;
 }
 
 .neonText {
   font-size: 1rem;
   color: #fff;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #570000,
-    0 0 21px #570000,
-    0 0 42px #570000,
-    0 0 82px #570000,
-    // 0 0 92px #0fa,
-    // 0 0 102px #0fa,
-    // 0 0 151px #0fa;
+  text-shadow: 0 0 7px #fff, 0 0 10px #570000, 0 0 21px #570000,
+    0 0 42px #570000, 0 0 82px #570000;
+  // 0 0 92px #0fa,
+  // 0 0 102px #0fa,
+  // 0 0 151px #0fa;
 }
 
 .price {
@@ -93,19 +77,20 @@ a:visited {
 
 .card {
   max-width: 100%;
-  background: rgb(0,0,0);
-  background: linear-gradient(90deg, rgba(0,0,0,0.3) 66%, rgba(99,0,0,0.3) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.3) 66%,
+    rgba(99, 0, 0, 0.3) 100%
+  );
   border: 2px solid #870000;
-  box-shadow: 
-    0 0 7px #870000,
-    0 0 10px #870000,
-    0 0 21px #570000,
+  box-shadow: 0 0 7px #870000, 0 0 10px #870000, 0 0 21px #570000,
     0 0 42px #570000;
 }
 
 .card-img-container {
   max-height: 20rem;
-  max-width: 15rem;
+  // max-width: 15rem;
 }
 
 .card-img {
@@ -116,4 +101,8 @@ a:visited {
 
 .form-inputs {
   max-width: 30rem;
+}
+
+.btn {
+  background-color: #570000;
 }
