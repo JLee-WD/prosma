@@ -21,26 +21,28 @@ class ItemsController < ApplicationController
   end
 
   def show
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      customer_email: current_user.email,
-      line_items: [{
-        name: @item.title,
-        description: @item.description,
-        images: @item.picture,
-        amount: @item.price
-        currency: 'yen',
-        quantity: 1
-      }],
-      payment_intent_data: {
-        metadata: {
-          item_id: @item.id
-        }
-      },
-      success_url: "#{root_url}payments/success?itemId=#{@item.id}",
-      cancel_url: "#{root_url}events"
-    )
-    @session_id = session.id
+    if current_user
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
+        line_items: [{
+          name: @item.title,
+          description: @item.description,
+          images: [@item.picture],
+          amount: @item.price,
+          currency: 'jpy',
+          quantity: 1
+        }],
+        payment_intent_data: {
+          metadata: {
+            item_id: @item.id
+          }
+        },
+        success_url: "#{root_url}payments/success?itemId=#{@item.id}",
+        cancel_url: "#{root_url}items"
+      )
+      @session_id = session.id
+    end
   end
 
   def index

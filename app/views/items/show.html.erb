@@ -7,11 +7,23 @@
     <p class="card-text neonText">Limb: <%= @item.limb.name %></p>
     <p class="card-text neonText">Type: <%= @item.control_type %></p>
     <p class="card-text neonText">Seller: <%= @item.user.first_name + " " + @item.user.last_name %></p>
+    <%= link_to "Back", items_path, class: "nav-link" %>
     <% if current_user && (current_user.id == @item.user_id || current_user.admin?) %>
       <%= link_to "Edit", edit_item_path(@item.id), class: "nav-link" %>
       <%= link_to "Delete", destroy_item_path(@item.id), :method => :delete, class: "nav-link" %>
     <% end %>
     <% if current_user %>
+      <button data-stripe="payment">Buy now</button>
       <%= link_to "Add to Cart", add_to_cart_path(@item), :method => :post, :class => "btn btn-outline-secondary" %>
     <% end %>
   </div>
+  
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+      const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+  </script>

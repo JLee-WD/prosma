@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete "/items/:id", to: "items#destroy", as: "destroy_item"
   get "/items/:id/edit", to: "items#edit", as: "edit_item"
 
+  get "/payments/success", to: "payments#success"
 
   get "/cart", to: "carts#show", as: "cart"
   post "/cart/:id", to: "carts#create", as: "add_to_cart"
