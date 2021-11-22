@@ -3,3 +3,13 @@
             <%= render partial: "partials/card_cart_item", locals: {item: item} %>
       <% end %>
 </ol>
+<button data-stripe="payment">Checkout</button>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+stripe.redirectToCheckout({
+      sessionId: "<%= @session_id %>"
+});
+});
+</script>
