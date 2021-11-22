@@ -8,7 +8,7 @@
           <%= link_to "#{item.title}", item_path(item), class: "neonTextTitle" %>
           <p class="card-text neonText"><%= number_to_currency(item.price, unit: "¥") %></p>
           <p class="card-text neonText">Material: <%= item.material %></p>
-          <p class="card-text neonText">Limb: <%= item.limb %></p>
+          <p class="card-text neonText">Limb: <%= item.limb.name %></p>
           <p class="card-text neonText">Type: <%= item.control_type %></p>
         </div>
       </div>

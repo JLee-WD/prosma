@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :items
+  has_one :cart
+  has_many :cart_items, through: :cart
+
   devise :database_authenticatable, 
          :registerable,
          :recoverable, 
@@ -9,7 +11,5 @@ class User < ApplicationRecord
          :trackable, 
          :timeoutable, timeout_in: 10.minutes
 
-  has_many :items
-  has_one :cart
-  has_many :cart_items, through: :cart
+  enum role: {user: 1, seller: 2, admin: 3}
 end

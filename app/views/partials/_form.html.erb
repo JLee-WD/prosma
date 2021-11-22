@@ -6,8 +6,8 @@
     <%= form.label :description, class: "neonText" %>
     <%= form.text_field :description, class: "form-control" %>
     <br>
-    <%= form.label :limb, class: "neonText" %>
-    <%= form.select :limb, ["Arm", "Leg", "Hand", "Foot", "Eye"], class: "form-control" %>
+    <%= form.label :limb_id, class: "neonText" %>
+    <%= form.select :limb_id, limbs.map {|l| [l.name, l.id]}, class: "form-control" %>
     <br>
     <%= form.label :material, class: "neonText" %>
     <%= form.select :material, ["Titanium", "Chromium", "Steel Alloy", "Carbon Fibre"], class: "form-control" %>

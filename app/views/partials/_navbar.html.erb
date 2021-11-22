@@ -27,6 +27,16 @@
             <%= link_to "Sign up", new_user_registration_path, class: "nav-link neonText", id: "navLink" %>
         </li>
         <% end %>
+          <%# <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Limb Category</a>
+            <ul class="dropdown-menu">
+              <li>
+                  <%= link_to "Arm", items_path, scope: :search, local: true class: "nav-link neonText", id: "navLink" %>
+              <%# </li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li> %>
       </ul>
     </div>
   </div>

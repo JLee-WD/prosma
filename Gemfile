@@ -33,7 +33,8 @@ gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
-gem "pundit"
+gem "stripe", "~> 5.41"
+gem "aws-sdk-s3", "~> 1.105"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,4 +61,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "aws-sdk-s3", "~> 1.105"
+
+
+
