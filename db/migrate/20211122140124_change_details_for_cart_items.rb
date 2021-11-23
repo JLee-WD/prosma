@@ -3,3 +3,4 @@ class ChangeDetailsForCartItems < ActiveRecord::Migration[6.0]
     change_column_null :cart_items, :cart_id, true
   end
 end
+
