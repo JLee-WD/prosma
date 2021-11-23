@@ -1,0 +1,8 @@
+  <li class="card list-group-item">
+    <div class="user-item-container ms-2 me-auto">
+      <%= link_to "#{item.title}", item_path(item), class: "neonText" %>
+      <p class="neonText"><%= item.limb.name + "," + item.material + "," + item.control_type %></p>
+      <p class="neonText"><%= number_to_currency(item.price, unit: "¥") %></p>
+      <p class="neonText">QTY: <%= item.quantity %></p>
+    </div>
+  </li>

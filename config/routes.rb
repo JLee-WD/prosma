@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get "/payments/success", to: "payments#success"
 
+  get "/admins/dash", to: "admins#index", as: "admin_index"
+
   get "/cart", to: "carts#show", as: "cart"
   post "/cart/:id", to: "carts#create", as: "add_to_cart"
   delete "/cart/:id", to: "carts#destroy", as: "destroy_cart_item"

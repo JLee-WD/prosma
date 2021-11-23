@@ -1,0 +1,37 @@
+<h1 class="neonTextTitle">Users</h1>
+<div class="user-container labels">
+  <p class="user-container-item neonText">Id</p>
+  <p class="user-container-item neonText">Full Name</p>
+  <p class="user-container-item neonText">Email</p>
+  <p class="user-container-item neonText">Role</p>
+  <p class="user-container-item neonText">User Since</p>
+</div>
+
+<ul class="list-group">
+  <% @users.each do |user| %>
+        <%= render partial: "partials/user_list_item", locals: {user: user} %>
+  <% end %>
+</ul>
+
+<h1 class="neonTextTitle">Items</h1>
+<div class="items-container labels">
+  <p class="user-container-item neonText">Total Item Count</p>
+  <p class="user-container-item neonText">Arms</p>
+  <p class="user-container-item neonText">Legs</p>
+  <p class="user-container-item neonText">Hands</p>
+  <p class="user-container-item neonText">Feet</p>
+  <p class="user-container-item neonText">Eyes</p>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="items-container">
+      <p><%= @items.length %></p>
+      <p><%= @arms.length %></p>
+      <p><%= @legs.length %></p>
+      <p><%= @hands.length %></p>
+      <p><%= @feet.length %></p>
+      <p><%= @eyes.length %></p>
+    </div>
+  </li>
+</ul>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :read_users
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :read_user_items, only: [:show]
   before_action :authenticate_user!
 
   def show
@@ -26,5 +27,9 @@ class UsersController < ApplicationController
 
   def read_users
     @users = User.all
+  end
+
+  def read_user_items
+    @items = @user.items
   end
 end

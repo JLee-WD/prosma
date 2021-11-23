@@ -7,3 +7,10 @@
       <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
     <% end %>
   </div>
+
+<h2 class="card-title neonTextTitle">User Items</h2>
+  <ul class="list-group">
+      <% current_user.items.each do |item| %>
+            <%= render partial: "partials/user_item", locals: {item: item} %>
+      <% end %>
+  </ul>

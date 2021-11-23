@@ -1,21 +1,24 @@
   <div class="card-body">
-    <%= image_tag(@item.picture, alt: "image", class: "img-fluid") if @item.picture.attached? %>
-    <h5 class="card-title neonTextTitle"><%= @item.title %></h5>
-    <p class="card-text neonText"><%= @item.description %></p>
-    <p class="card-text neonText price"><%= number_to_currency(@item.price, unit: "¥")  %></p>
-    <p class="card-text neonText">Material: <%= @item.material %></p>
-    <p class="card-text neonText">Limb: <%= @item.limb.name %></p>
-    <p class="card-text neonText">Type: <%= @item.control_type %></p>
-    <p class="card-text neonText">Seller: <%= @item.user.first_name + " " + @item.user.last_name %></p>
-    <%= link_to "Back", items_path, class: "nav-link" %>
-    <% if current_user && (current_user.id == @item.user_id || current_user.admin?) %>
-      <%= link_to "Edit", edit_item_path(@item.id), class: "nav-link" %>
-      <%= link_to "Delete", destroy_item_path(@item.id), :method => :delete, class: "nav-link" %>
-    <% end %>
-    <% if current_user %>
-      <button data-stripe="payment">Buy now</button>
-      <%= link_to "Add to Cart", add_to_cart_path(@item), :method => :post, :class => "btn btn-outline-secondary" %>
-    <% end %>
+    <%= image_tag(@item.picture, alt: "image", class: "item-img") if @item.picture.attached? %>
+    <div class="item-info">
+      <h5 class="card-title neonTextTitle"><%= @item.title %></h5>
+      <p class="card-text neonText"><%= @item.description %></p>
+      <p class="card-text neonText price"><%= number_to_currency(@item.price, unit: "¥")  %></p>
+      <p class="card-text neonText">Material: <%= @item.material %></p>
+      <p class="card-text neonText">Limb: <%= @item.limb.name %></p>
+      <p class="card-text neonText">Type: <%= @item.control_type %></p>
+      <p class="card-text neonText">Seller: <%= @item.user.first_name + " " + @item.user.last_name %></p>
+      <%= link_to "Back", items_path, class: "btn neonText" %>
+      <% if current_user && (current_user.id == @item.user_id || current_user.admin?) %>
+        <%= link_to "Edit", edit_item_path(@item.id), class: "btn neonText" %>
+        <%= link_to "Delete", destroy_item_path(@item.id), :method => :delete, class: "btn neonText" %>
+      <% end %>
+      <% if current_user %>
+        <button data-stripe="payment" class="btn neonText">Buy now</button>
+        <%= link_to "Add to Cart", add_to_cart_path(@item), :method => :post, :class => "btn neonText" %>
+      <% end %>
+    </div>
+
   </div>
   
   <script src="https://js.stripe.com/v3/"></script>

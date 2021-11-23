@@ -8,6 +8,8 @@ class CartsController < ApplicationController
       @cart.items << @item
       flash[:alert] = "Item added to cart!"
     end
+    redirect_to item_path(@item)
+    
   end
 
   def show
@@ -28,21 +30,22 @@ class CartsController < ApplicationController
       }
     end
 
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      customer_email: current_user.email,
+    if @line_items.length > 0
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
 
-      line_items: [@line_items],
-      payment_intent_data: {
-        metadata: {
-          cart_id: @cart.id
-        }
-      },
-      success_url: "#{root_url}payments/success?itemId=#{@cart.id}",
-      cancel_url: "#{root_url}items"
-    )
-
-    @session_id = session.id
+        line_items: [@line_items],
+        payment_intent_data: {
+          metadata: {
+            cart_id: @cart.id
+          }
+        },
+        success_url: "#{root_url}payments/success?itemId=#{@cart.id}",
+        cancel_url: "#{root_url}items"
+      )
+      @session_id = session.id
+    end
   end
 
   def destroy
