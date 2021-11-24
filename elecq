@@ -1,0 +1,16 @@
+                   List of relations
+ Schema |            Name            | Type  |  Owner  
+--------+----------------------------+-------+---------
+ public | active_storage_attachments | table | justinl
+ public | active_storage_blobs       | table | justinl
+ public | ar_internal_metadata       | table | justinl
+ public | cart_items                 | table | justinl
+ public | carts                      | table | justinl
+ public | items                      | table | justinl
+ public | limbs                      | table | justinl
+ public | order_items                | table | justinl
+ public | orders                     | table | justinl
+ public | schema_migrations          | table | justinl
+ public | users                      | table | justinl
+(11 rows)
+

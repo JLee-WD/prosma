@@ -1,10 +1,10 @@
-<div class="form-group">
+<div class="form-group form-inputs">
   <%= form_with model: @item do |form| %>
     <%= form.label :title, class: "neonText" %>
     <%= form.text_field :title, class: "form-control" %>
     <br>
     <%= form.label :description, class: "neonText" %>
-    <%= form.text_field :description, class: "form-control" %>
+    <%= form.text_area :description, class: "form-control" %>
     <br>
     <%= form.label :limb_id, class: "neonText" %>
     <%= form.select :limb_id, limbs.map {|l| [l.name, l.id]}, class: "form-control" %>

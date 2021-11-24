@@ -1,16 +1,16 @@
-<h2 class="card-title neonTextTitle">Profile</h2>
-  <div class="card-body">
-    <p class="card-text neonText"><%= "Full name: " +  @user.first_name + " " + @user.last_name %></p>
-    <p class="card-text neonText"><%= "Email: " +  @user.email %></p>
-    <p class="card-text neonText"><%= "User since: " +  @user.created_at.to_s %></p>
-    <% if current_user.id == @user.id %>
-      <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
-    <% end %>
-  </div>
+<h2 class="card-title neonTextTitle mb-4">Profile</h2>
+<div class="card-body">
+  <p class="card-text neonText"><%= "Full name: " +  @user.first_name + " " + @user.last_name %></p>
+  <p class="card-text neonText"><%= "Email: " +  @user.email %></p>
+  <p class="card-text neonText"><%= "User since: " +  @user.created_at.to_s %></p>
+  <% if current_user.id == @user.id %>
+    <%= link_to "Edit Profile", edit_user_registration_path(current_user.id), class: "nav-link" %>
+  <% end %>
+</div>
 
-<h2 class="card-title neonTextTitle">User Items</h2>
-  <ul class="list-group">
-      <% current_user.items.each do |item| %>
-            <%= render partial: "partials/user_item", locals: {item: item} %>
-      <% end %>
-  </ul>
+<h2 class="card-title neonTextTitle mt-4 mb-4">User Items</h2>
+<ul class="list-group">
+    <% current_user.items.each do |item| %>
+          <%= render partial: "partials/user_item", locals: {item: item} %>
+    <% end %>
+</ul>

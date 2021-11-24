@@ -12,7 +12,6 @@
                 required: true, label_html: { class: "neonText" } %>
     <%= f.input :last_name,
                 required: true, label_html: { class: "neonText" } %>
-    <%= f.input :seller, as: :boolean, checked_value: true, unchecked_value: false, label_html: { class: "neonText" } %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
