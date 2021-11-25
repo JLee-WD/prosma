@@ -1,15 +1,17 @@
 class ItemsController < ApplicationController
-  before_action :read_items, :read_users, :read_limbs
+  #Actions executed before other methods in controller
+  before_action :read_users, :read_limbs
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authorize_seller, only: [:new, :create]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authorize_user, only: [:edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  #New method for item instansiation
   def new
     @item = Item.new
   end
 
+  #Create method for an item with an authentication check
   def create
     if user_signed_in?
       @item = current_user.items.create(item_params)
@@ -21,6 +23,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  #Show method including Stripe parameters used for payments
   def show
     if current_user
       session = Stripe::Checkout::Session.create(
@@ -46,18 +49,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  #Index method for item, assigning searched and filtered items to an instance variable
   def index
     @items = Item.search(params[:search]).includes(:limb, :user)
   end
 
+  #Edit method for item
   def edit
   end
 
+  #Update method for item
   def update
     @item.update(item_params)
     redirect_to items_path
   end
 
+  #Destroy method enabling deletion of item
   def destroy
     @item.destroy
     flash[:alert] = "Item Deleted"
@@ -66,6 +73,7 @@ class ItemsController < ApplicationController
 
   private 
 
+  #Authorize seller method to check if user id is the same as item id OR admin
   def authorize_user
     unless (current_user.id == @item.user_id) || current_user.admin?
       flash[:alert] = "You are not authorized!"
@@ -73,6 +81,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  #Authorize seller method to check if user is seller or admin
   def authorize_seller
     unless current_user.seller? || current_user.admin?
       flash[:alert] = "You are not authorized!"
@@ -80,26 +89,24 @@ class ItemsController < ApplicationController
     end
   end
 
+  #Sets item to instance variable for use, from parameters
   def set_item
     id = params[:id]
     @item = Item.find(id)
   end
 
-  #Reads items, materials, limbs and types and assigns to instance variables
-  def read_items
-
-  end
-
+  #Sets all limbs to instance variable for use
   def read_limbs
     @limbs = Limb.all
   end
 
+  #Sets all users to instance variable for use
   def read_users
     @users = User.all
   end
-  # Whitelist parameters for item instansiation
+
+  #Whitelist parameters for item instansiation
   def item_params
     params.require(:item).permit(:title, :description, :price, :material, :limb_id, :control_type, :picture)
   end
-
 end

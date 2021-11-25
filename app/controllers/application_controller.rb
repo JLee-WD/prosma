@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_signup_permitted_parameters, if: :devise_controller?
   before_action :configure_registration_permitted_parameters, if: :devise_controller?
-  # before_action :authenticate_user!
+
   require "stripe"
 
   private

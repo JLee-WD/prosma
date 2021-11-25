@@ -1,6 +1,8 @@
 <h1 class="neonTextTitle">Admin Dashboard</h1>
 <br>
 <br>
+
+<%# Heading and subheadings for a list of users %>
 <h2 class="neonTextTitle">Users</h2>
 <div class="user-container labels">
   <p class="user-container-item neonText">Id</p>
@@ -10,12 +12,14 @@
   <p class="user-container-item neonText">User Since</p>
 </div>
 
+<%# Renders a list of users via partial with an each loop, passing parameter user %>
 <ul class="list-group">
   <% @users.each do |user| %>
         <%= render partial: "partials/user_list_item", locals: {user: user} %>
   <% end %>
 </ul>
 
+<%# Heading and subheadings for a summary of items %>
 <h2 class="neonTextTitle mt-5">Items</h2>
 <div class="items-container labels">
   <p class="user-container-item neonText">Total Item Count</p>
@@ -26,6 +30,7 @@
   <p class="user-container-item neonText">Eyes</p>
 </div>
 
+<%# Summary statistics for items using instance variables from controller %>
 <ul class="list-group">
   <li class="list-group-item">
     <div class="items-container">

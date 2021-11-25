@@ -1,15 +1,19 @@
+<%# Renders list of cart items using partial, passing in item from each loop %>
 <ul class="list-group">
       <% @cart.items.each do |item| %>
             <%= render partial: "partials/card_cart_item", locals: {item: item} %>
       <% end %>
 </ul>
 
+<%# Stipe checkout payment button %>
 <div class="m-4">
       <button data-stripe="payment" class="btn neonText">Checkout</button>
 </div>
 
+<%# Javascript script for stripe %>
 <script src="https://js.stripe.com/v3/"></script>
 
+<%# Stipe script enabling payments %>
 <script>
       document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
             const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");

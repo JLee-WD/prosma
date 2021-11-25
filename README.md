@@ -6,6 +6,8 @@ https://prosma.herokuapp.com/
 
 https://github.com/JLee-WD/prosma
 
+The master key can be found in the docs folder (one level up) in _secrets.txt_
+
 ## The Problem
 
 The process of acquiring a prosthetic can be daunting for a new amputee. After going through rehabilitation, countless doctor visits, and then reaching out to a prosthetist possibly from a referral, the individual is then given limited options at set prices with very little government support. Then come the questions for the prosthesis itself:
