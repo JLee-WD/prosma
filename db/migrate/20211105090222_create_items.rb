@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :control_type, null: false, default: "Exo"
       t.string :material, null: false, default: "Carbon Fibre"
       t.integer :price, null: false, default: 1
+      t.integer :quantity, null: false, default: 1
 
       t.timestamps
     end
