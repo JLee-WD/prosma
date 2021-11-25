@@ -8,14 +8,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize @user
+    unless @user.id == current_user.id || current_user.admin?
+      flash[:alert] = "You are not authorized!"
+      redirect_to items_path
+    end
   end
 
   def update
-    authorize @user
   end
 
   def destroy
+    unless @user.id == current_user.id || current_user.admin?
+      flash[:alert] = "You are not authorized!"
+      redirect_to items_path
+    end
   end
 
   private

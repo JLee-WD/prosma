@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :read_items, :read_users, :read_limbs
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_seller, only: [:new, :create]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -67,6 +68,13 @@ class ItemsController < ApplicationController
 
   def authorize_user
     unless (current_user.id == @item.user_id) || current_user.admin?
+      flash[:alert] = "You are not authorized!"
+      redirect_to items_path
+    end
+  end
+
+  def authorize_seller
+    unless current_user.seller? || current_user.admin?
       flash[:alert] = "You are not authorized!"
       redirect_to items_path
     end

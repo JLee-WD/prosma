@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_one_attached :picture
   belongs_to :limb
   has_many :cart_items
-  has_many :carts
+  has_many :carts, through :cart_items
 
   scope :search_by_title, -> (title) { where("title ILIKE ?", "%#{title}%")}
   scope :filter_by_limb, -> (id) {where(limb_id: id)}
