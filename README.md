@@ -78,33 +78,33 @@ Future updates will contain filter by control type, and filter by material to im
 ## Sitemap
 
 Sitemap
-![Sitemap](../docs/Sitemap.png)
+![Sitemap](https://github.com/JLee-WD/prosma/blob/master/docs/Sitemap.png)
 
 ## Screenshots
 
 Index page screenshot - Item Catalogue
-![Screenshot - Index](../docs/SS_index.png)
+![Screenshot - Index](https://github.com/JLee-WD/prosma/blob/master/docs/SS_index.png)
 
 Show page screenshot - Item Details
-![Screenshot - Show](../docs/SS_show.png)
+![Screenshot - Show](https://github.com/JLee-WD/prosma/blob/master/docs/SS_show.png)
 
 Add Item page screenshot
-![Screenshot - Add Item](../docs/SS_add.png)
+![Screenshot - Add Item](https://github.com/JLee-WD/prosma/blob/master/docs/SS_add.png)
 
 Cart page screenshot
-![Screenshot - Cart](../docs/SS_cart.png)
+![Screenshot - Cart](https://github.com/JLee-WD/prosma/blob/master/docs/SS_cart.png)
 
 Profile page screenshot
-![Screenshot - View Profile](../docs/SS_profile.png)
+![Screenshot - View Profile](https://github.com/JLee-WD/prosma/blob/master/docs/SS_profile.png)
 
 Edit/New profile page screenshot
-![Screenshot - Edit Profile](../docs/SS_editpro.png)
+![Screenshot - Edit Profile](https://github.com/JLee-WD/prosma/blob/master/docs/SS_editpro.png)
 
 Admin page screenshot - Dashboard
-![Screenshot - Admin Dashboard](../docs/SS_admin.png)
+![Screenshot - Admin Dashboard](https://github.com/JLee-WD/prosma/blob/master/docs/SS_admin.png)
 
 Stripe checkout screenshot
-![Screenshot - Stripe payment](../docs/SS_stripe.png)
+![Screenshot - Stripe payment](https://github.com/JLee-WD/prosma/blob/master/docs/SS_stripe.png)
 
 ## Target Audience
 
@@ -160,21 +160,21 @@ Stripe checkout screenshot
 ## Wire Frames
 
 Index page - Item Catalogue
-![Wireframe - Index](../docs/WF_index.png)
+![Wireframe - Index](https://github.com/JLee-WD/prosma/blob/master/docs/WF_index.png)
 
 Show page - Item Details
-![Wireframe - Show](../docs/WF_show.png)
+![Wireframe - Show](https://github.com/JLee-WD/prosma/blob/master/docs/WF_show.png)
 
 Form page - Sign Up
-![Wireframe - Form](../docs/WF_form.png)
+![Wireframe - Form](https://github.com/JLee-WD/prosma/blob/master/docs/WF_form.png)
 
 Admin page - Dashboard
-![Wireframe - Admin](../docs/WF_admin.png)
+![Wireframe - Admin](https://github.com/JLee-WD/prosma/blob/master/docs/WF_admin.png)
 
 ## Entity Relationship Diagram
 
 Prosma Entity Relationship Diagram
-![Prosma - ERD](../docs/ProsmaERB.png)
+![Prosma - ERD](https://github.com/JLee-WD/prosma/blob/master/docs/ProsmaERB.png)
 
 ## High-level components
 
@@ -282,37 +282,37 @@ ProsMa is built with Ruby on Rails which uses a Model-View-Controller architectu
 
 ## Database relations
 
-![User relation](../docs/R_user.png)
+![User relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_user.png)
 
 - **_User_** relation handles the majority of the user's information, minus the user address (which will be implemented in future updates as a separate referenced relation). The user relation, through authorizaion, dictates the level of functionality the user will have on the application. This is indicated via the role row. The relation also stores all of authentication data collected when a user creates or edits an account. This includes the email, encrypted password, reset password tokens, and sign in metadata. Without the user relation, much of the core functionality of the app (cart, profile, payments) are unusable.
 
-![Item relation](../docs/R_item.png)
+![Item relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_item.png)
 
 - **_Item_** relation contains item data including title, description, price, control_type, material and quantity. As the item belongs to a single user, and to a single limb, the relation has two foreign keys: user_id and limb_id. Stripe also uses this information to fulfill payments. Only a user with the role of seller or admin can instantiate items. The item relation is at the core of the application, cart_items cannot be created without a reference to an item, same goes with payments, reviews (to be implemented) and orders.
 
-![Cart & Cart Item relation](../docs/R_cart.png)
+![Cart & Cart Item relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_cart.png)
 
 - **_Cart & Cart Item_** relations handle cart functionality for the application. The cart items reference a single cart with a cart_id and an item with an item_id, while the cart references a single user with a user_id. Cart items operates as a join table between the cart and an item allowing adding and removing cart items to the cart without affecting the item until checkout.
 
-![Limb relation](../docs/R_limb.png)
+![Limb relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_limb.png)
 
 - **_Limb_** relation contains a single row for the name. This relation allows items to be catagorized, as each item belongs to a single limb and items through their association can be filtered and sorted via the connection.
 
-![Active Storage relation](../docs/R_actv.png)
+![Active Storage relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_actv.png)
 
 - **_Active storage attachments & blobs_** relations refer to the image uploading capacity for items. An item has one picture (multiple pictures to be implemented in future updates), and this picture is attached via an active storage attachment relation, which has an association to an active storage blob.
 
 ### Future relations
 
-![Review relation](../docs/R_rev.png)
+![Review relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_rev.png)
 
 - **_Review_** relation will have an belongs_to association to an item, and a user. The review will contain two rows, a description with datatype text, and a rating with datatype integer. A user will have many reviews, same with an item.
 
-![Order and Order Item relation](../docs/R_order.png)
+![Order and Order Item relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_order.png)
 
 - **_Order and Order Item_** relations have a similar schema structure to cart and cart items. An order belongs to a user and has many order items. An order item belongs to an order, and an item, plus operates as an join table between order and items. An order item will have a foreign key for an order, and an item.
 
-![User Address relation](../docs/R_addr.png)
+![User Address relation](https://github.com/JLee-WD/prosma/blob/master/docs/R_addr.png)
 
 - **_User Address_** relation has a belongs to association to a user, and a user has one user address. The relation will contain a unit, postcode, & street number, datatypes integer. It will also have a street name, suburb, street type, and country, datatypes string. The user address relation, when it is implemented, will also have an association with an order.
 
@@ -414,8 +414,8 @@ end
 
 https://trello.com/b/ULSrOleI/prosma
 
-![Trello Board 1](../docs/Trello1.png)
-![Trello Board 2](../docs/Trello2.png)
+![Trello Board 1](https://github.com/JLee-WD/prosma/blob/master/docs/Trello1.png)
+![Trello Board 2](https://github.com/JLee-WD/prosma/blob/master/docs/Trello2.png)
 
 Tasks were planned and tracked via the ProsMa trello board. Taskes were divided in the following lists by category:
 
